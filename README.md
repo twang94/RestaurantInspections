@@ -20,7 +20,7 @@ I perform exploratory data analysis to try and identify trends in grading and sc
 
 ## Exploratory Data Analysis
 
-Early EDA on the counts of grades and grade distributions across boroughs:
+I first performed early EDA on the counts of grades and grade distributions across boroughs. I broke down how the numerical scores were distributed, and also took the top 10 cuisine types in the dataset, and looked at the proportion of grades distributed.
 
 ![](img/borosgrades.png "borogrades") ![](img/borosproportions.png "boroproportions")
 
@@ -28,4 +28,62 @@ Distribution of scores:
 ![](img/scoredist.png "ScoreDist")
 
 By cuisine type:
-!
+![](img/cuisinegrades.png "Cuisines")
+
+We can see that there is a distinct drop-off in proportion of A-graded restaurants when comparing American and Italian cuisine to Chinese/Spanish/Caribbean.
+
+## Incorporating Median Income of Zip Code
+
+I try to see if there is a relationship between the overall wealth of a neighborhood (as measured by median income) and the rate of health grades of its restaurants. To do this, I introduce new data that contains measurements of median income for all NYC postal codes - of which there are roughly ~160. 
+
+![](img/boxplot_income.png "Income")
+
+We see a small, but observable difference in the median incomes for A-graded restaurants to B and C-graded restaurants. We now perform a statistical hypothesis test to see if the difference observed is indeed statistically significant. 
+
+### Hypothesis Testing
+
+Method: Mann-Whitney U-test. [See income_htest notebook for details on p-value calculation](notebooks/income_test.ipynb)
+
+$H_0: \text{The given pairs of populations of incomes are equal.}
+\\
+H_A: \text{The given pairs of populations of incomes are not equal.}
+\\
+\alpha = .05
+$
+
+$\text{Pairs to be tested: A-B, A-C, B-C}$
+
+$\text{A-B  p-value = 0.000} \\
+\text{A-C  p-value = 0.006} \\
+\text{B-C  p-value = 0.557} \\
+\text{We can reject the null hypothesis that the two populations of incomes are equal for pairs A-B and A-C.} \\ 
+\text{We fail to reject the null hypothesis for the third pair of populations, B-C.}$
+
+### Linear Regression Model
+
+I create a simple linear regression model relating the median income of a postal code, and the percentage of A-graded restaurants in that zip code. 
+
+![](img/regression.png "Regression")
+
+I obtained a p-value of 0.009 and an R-squared of 0.090. There appears to be a weak positive correlation between these two metrics of a given NYC zip code. 
+
+## Geo-plotting with Folium
+
+Due to the availability of lat-long coordinates for every restaurant in the dataset, along with zip-code data, I used both choropleth maps and heat maps available in the Folium python package to geographically plot the data.
+
+Choropleth map showing percentage of A graded restaurants per zip code
+![](img/percentageA_map.jpg "Percentage A")
+
+Choropleth map showing median income of zip code
+![](img/incomecomp_map.jpg "Income map")
+
+Heat map of where restaurant violations are cited using lat-long coordinates
+![](img/allelse_map.jpg "All violations")
+
+## Further Work
+
+* Obtain Yelp price point data for each restaurant
+
+* Incorporate ethnic demographic numbers for neighborhoods of New York
+
+* Create composite map of Percentage A vs. Income map. This would make it easier to read and provide better information at a glance.
