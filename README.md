@@ -44,20 +44,7 @@ We see a small, but observable difference in the median incomes for A-graded res
 
 Method: Mann-Whitney U-test. [See income_htest notebook for details on p-value calculation](notebooks/income_test.ipynb)
 
-$H_0: \text{The given pairs of populations of incomes are equal.}
-\\
-H_A: \text{The given pairs of populations of incomes are not equal.}
-\\
-\alpha = .05
-$
-
-$\text{Pairs to be tested: A-B, A-C, B-C}$
-
-$\text{A-B  p-value = 0.000} \\
-\text{A-C  p-value = 0.006} \\
-\text{B-C  p-value = 0.557} \\
-\text{We can reject the null hypothesis that the two populations of incomes are equal for pairs A-B and A-C.} \\ 
-\text{We fail to reject the null hypothesis for the third pair of populations, B-C.}$
+![](img/hypo_test.jpg "MannWhitneytest")
 
 ### Linear Regression Model
 
