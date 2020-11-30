@@ -74,3 +74,4 @@ Heat map of where restaurant violations are cited using lat-long coordinates
 * Incorporate ethnic demographic numbers for neighborhoods of New York
 
 * Create composite map of Percentage A vs. Income map. This would make it easier to read and provide better information at a glance.
+    * https://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/ 
