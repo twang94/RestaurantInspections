@@ -1,8 +1,6 @@
 # Identifying and Analyzing Patterns in NYC Restaurant Inspections 
 
-I was interested in working with NYC restaurant-related data. I have personal family connections to the NYC restaurant biz and I also wanted to look for  and the overall diverse demographics that make up the five boroughs of New York.
-
-I perform exploratory data analysis to try and identify trends in grading and scoring across geographical boundaries. I also look at 
+A project examining a dataset of health inspection results for restaurants in the five boroughs of NYC. I generate various EDA visualizations of the data and conduct a statistical hypothesis test relating restaurant grades to local wealth of neighborhoods. I also 
 
 ## Data Sources
 
@@ -30,7 +28,6 @@ Distribution of scores:
 By cuisine type:
 ![](img/cuisinegrades.png "Cuisines")
 
-We can see that there is a distinct drop-off in proportion of A-graded restaurants when comparing American and Italian cuisine to Chinese/Spanish/Caribbean.
 
 ## Incorporating Median Income of Zip Code
 
