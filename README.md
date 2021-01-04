@@ -1,6 +1,6 @@
 # Identifying and Analyzing Patterns in NYC Restaurant Inspections 
 
-A project examining a dataset of health inspection results for restaurants in the five boroughs of NYC. I generate various EDA visualizations of the data and conduct a statistical hypothesis test relating restaurant grades to local wealth of neighborhoods. I also 
+A project examining a dataset of health inspection results for restaurants in the five boroughs of NYC. I generate various EDA visualizations of the data and conduct a statistical hypothesis test relating restaurant grades to local wealth of neighborhoods. I also use geo-plotting libraries in Python to create choropleth and heat maps of the data.
 
 ## Data Sources
 
